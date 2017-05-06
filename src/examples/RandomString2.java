@@ -10,45 +10,41 @@ import java.util.Random;
  *
  * @author fabio
  */
-public class RandomString {
+public class RandomString2 {
 
     /**
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-        // TODO code application logic here
-        // rifare usando una stringa anzichè un array e poi prendendo caratteri a caso dalla stringa
-        int i = 0;
+        
         String sResult = "";
         int strLength = 30;
         
-        // Creo l'array contenente tutti i possibili caratteri della stringa
-        char[] aSymbols = new char[62];
-       
+        // Creo la stringa contenente tutti i possibili caratteri
+        String sSymbols = "";
+        int i = 0;
         //caratteri a-z
         for(char c ='a'; c <='z'; c++){            
-            aSymbols[i] = c;
+            sSymbols = sSymbols+c;
             i++;
         }
-        
         //caratteri A-Z
         for(char c ='A'; c <='Z'; c++){            
-            aSymbols[i] = c;
+            sSymbols = sSymbols+c;
             i++;
         }
-
         //caratteri 0-9
         for(char c ='0'; c <='9'; c++){            
-            aSymbols[i] = c;
+            sSymbols = sSymbols+c;
             i++;   
         }
         
-        //creo la stringa prendendo valori casuali dall'array costruito sopra
+        //creo la stringa prendendo valori casuali dalla stringa dei simboli costruita sopra
         int j=0;
         Random rand = new Random();
         while (j < strLength){
-            int k = rand.nextInt(aSymbols.length);
-            sResult= sResult+aSymbols[k];
+            int k = rand.nextInt(sSymbols.length());
+            sResult= sResult+sSymbols.charAt(k);
             j++;
         }
         System.out.println(sResult);
